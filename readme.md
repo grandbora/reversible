@@ -1,5 +1,7 @@
 # Reversibles
 
+Javascript solution for the [reversibles problem](http://projecteuler.net/problem=145)
+
 # Problem
 
 Some positive integers n have the property that the sum of (n  + reverse(n)) consists entirely of odd digits.
