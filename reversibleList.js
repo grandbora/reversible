@@ -28,21 +28,27 @@ ReversibleList.prototype.reverseNumber = function(number) {
 	return Number(reverseString)
 };
 
+
 /**
-* task describes the function as below;
-* isOdd(number) - Returns true if number is odd
-* I believe what is meant here is to check if all the digits are odd or not.
-*
+* Returns boolean indicating if all the digits of the given number is odd or not
+* @param {number} number
+* @return {boolean} 
+*/
+ReversibleList.prototype.areAllDigitsOdd = function(number) {
+	var numberStringList = number.toString().split('')
+	for (var i = 0; i < numberStringList.length; i++) {
+		if (false === this.isOdd(numberStringList[i])) return false
+	}
+	return true
+}
+
+/**
 * Returns boolean indicating if the given number is odd or not
 * @param {number} number
 * @return {boolean} 
 */
 ReversibleList.prototype.isOdd = function(number) {
-	var numberStringList = number.toString().split('')
-	for (var i = 0; i < numberStringList.length; i++) {
-		if (0 === numberStringList[i] % 2) return false
-	}
-	return true
+	return 1 === number % 2
 }
 
 /**
@@ -54,5 +60,5 @@ ReversibleList.prototype.isReversible = function(number) {
 	if (0 === number % 10) return false
 
 	var reverseNumber = this.reverseNumber(number)
-	return this.isOdd(number + reverseNumber)
+	return this.areAllDigitsOdd(number + reverseNumber)
 }

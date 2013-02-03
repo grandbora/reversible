@@ -2,8 +2,14 @@ ReversibleList = require('./../reversibleList')
 
 function testIsOdd() {
 	var reversibleList = new ReversibleList()
-	if (false === reversibleList.isOdd(13579)) console.log('testIsOdd failed')
-	if (true === reversibleList.isOdd(13879)) console.log('testIsOdd failed')
+	if (true !== reversibleList.isOdd(13579)) console.log('testIsOdd failed')
+	if (false !== reversibleList.isOdd(13878)) console.log('testIsOdd failed')
+}
+
+function testAreAllDigitsOdd() {
+	var reversibleList = new ReversibleList()
+	if (true !== reversibleList.areAllDigitsOdd(13579)) console.log('testAreAllDigitsOdd failed')
+	if (false !== reversibleList.areAllDigitsOdd(13878)) console.log('testAreAllDigitsOdd failed')
 }
 
 function testReverseNumber() {
@@ -28,6 +34,7 @@ function testIsReversible() {
 }
 
 testIsOdd()
+testAreAllDigitsOdd()
 testReverseNumber()
 testListReversible()
 testIsReversible()
